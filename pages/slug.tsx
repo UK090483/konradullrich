@@ -18,43 +18,46 @@ import { layoutQuery, layoutQueryResult } from "@components/Layout/LayoutQuery";
 import { listingBlockQuery } from "@components/Blocks/ListingBlock/listingBlockQuery";
 import ListingBlock from "@components/Blocks/ListingBlock/ListingsBlock";
 
+import IndexPage from "./index";
 export type PageResult = { title?: string } & layoutQueryResult &
   LangSwitcherResult &
   NavigationResult &
   SeoResult;
 
-const { getStaticPaths, getStaticProps, PageComponent } = SPB<PageResult>({
-  revalidate: 1,
-  client,
-  locales: config.locales,
-  getQuery: (props) => {
-    const { locale } = props;
-    const res = `${layoutQuery(locale)} ${blockFactory.getRootQuery({
-      locale,
-    })}, ${seoQuery(locale)}, ${LangSwitcherQuery(
-      config.locales
-    )}, ${NavigationQuery(locale)}`;
-    return res;
-  },
-  components: [
-    {
-      name: "hero",
-      component: HeroBlock,
-      query: heroBlockQuery,
-    },
-    {
-      name: "section",
-      component: SectionBlock,
-      query: sectionBlockQuery,
-    },
-    {
-      name: "listing",
-      component: ListingBlock,
-      query: listingBlockQuery,
-    },
-  ],
-});
+// const { getStaticPaths, getStaticProps, PageComponent } = SPB<PageResult>({
+//   revalidate: 1,
+//   client,
+//   locales: config.locales,
+//   getQuery: (props) => {
+//     const { locale } = props;
+//     const res = `${layoutQuery(locale)} ${blockFactory.getRootQuery({
+//       locale,
+//     })}, ${seoQuery(locale)}, ${LangSwitcherQuery(
+//       config.locales
+//     )}, ${NavigationQuery(locale)}`;
+//     return res;
+//   },
+//   components: [
+//     {
+//       name: "hero",
+//       component: HeroBlock,
+//       query: heroBlockQuery,
+//     },
+//     {
+//       name: "section",
+//       component: SectionBlock,
+//       query: sectionBlockQuery,
+//     },
+//     {
+//       name: "listing",
+//       component: ListingBlock,
+//       query: listingBlockQuery,
+//     },
+//   ],
+// });
 
-export { getStaticPaths, getStaticProps };
+// export { getStaticPaths, getStaticProps };
 
-export default PageComponent;
+// export default PageComponent;
+
+export default IndexPage;
