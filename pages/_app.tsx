@@ -5,7 +5,7 @@ import { NextComponentType, NextPageContext } from "next";
 import Cookie from "@lib/Cookie/Cookie";
 import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicator";
 import Seo from "@lib/SeoService/Seo";
-import { PageResult } from "./[[...slug]]";
+import { PageResult } from "./slug";
 import { PageProps } from "@lib/SanityPageBuilder/types";
 import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSubscription";
 

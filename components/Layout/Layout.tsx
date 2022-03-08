@@ -1,6 +1,6 @@
 import { PageProps } from "@lib/SanityPageBuilder/types";
 import SkipToContent from "@lib/SkipToContent/SkipComponent";
-import { PageResult } from "pages/[[...slug]]";
+import { PageResult } from "pages/slug";
 import React from "react";
 import Footer from "./Footer";
 import Head from "./Head";
@@ -15,12 +15,12 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <>
       <LayoutContextProvider homeRoute={data?.homeRoute}>
-        <SkipToContent containerId="main-content" />
+        {/* <SkipToContent containerId="main-content" />
         <Header>
           <Nav items={data?.navigation || []} slugs={data?.langSwitchData} />
-        </Header>
+        </Header> */}
         <Head name={data?.title} />
-        <main id="main-content" className="min-h-screen mt-[57px] select-none">
+        <main id="main-content" className="min-h-screen select-none">
           {children}
         </main>
         {data && <Footer {...data} />}

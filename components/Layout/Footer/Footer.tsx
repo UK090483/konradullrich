@@ -6,7 +6,7 @@ import { Link } from "@components/Link";
 import Image from "next/image";
 import Sozial from "./SozialIcons";
 import { NavItem } from "@lib/Navigation/types";
-import { PageResult } from "pages/[[...slug]]";
+import { PageResult } from "pages/slug";
 
 const Marque = dynamic(() => import("./Marque"));
 
