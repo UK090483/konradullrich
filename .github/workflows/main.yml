@@ -2,6 +2,9 @@ name: Backup Routine
 on: workflow_dispatch
 jobs:
   backup-dataset:
+   defaults:
+      run:
+        working-directory: studio
     runs-on: ubuntu-18.04
     name: Backup dataset
     steps:
