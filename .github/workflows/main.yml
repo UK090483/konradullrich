@@ -23,7 +23,7 @@ jobs:
         run: |
           SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" \
           npx sanity dataset export \
-          development backups/backup.tar.gz
+          production backups/backup.tar.gz
 
       - name: Upload backup.tar.gz
         uses: actions/upload-artifact@v2
