@@ -15,7 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install
+        run: |
+          npm install
+          npm install @sanity/cli
 
       - name: Export dataset
         run: |
