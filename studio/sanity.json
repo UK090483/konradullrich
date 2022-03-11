@@ -2,7 +2,7 @@
   "root": true,
   "api": {
     "projectId": "5dm7cvy8",
-    "dataset": "production"
+    "dataset": "development"
   },
   "project": {
     "name": "Konrad"
