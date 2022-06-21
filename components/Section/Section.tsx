@@ -11,6 +11,7 @@ interface SectionProps {
   as?: "section" | "div" | "ul";
   asInner?: "div" | "ul";
   style?: React.CSSProperties;
+  "data-testid"?: string;
 }
 
 export const Section: React.FC<SectionProps> = ({
@@ -18,7 +19,7 @@ export const Section: React.FC<SectionProps> = ({
   width = "m",
   className,
   id,
-  bg = "white",
+  bg = "black",
   noPadding = false,
   as: Component = "section",
   asInner: InnerComponent = "div",

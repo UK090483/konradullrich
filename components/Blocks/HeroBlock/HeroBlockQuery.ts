@@ -8,7 +8,7 @@ markDefs[]{
   }
 }`;
 
-export const heroBlockQuery = (locale: string) => `
+export const heroBlockQuery = (locale?: string) => `
 _type == "hero" => {
   _type,
   _key, 

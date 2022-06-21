@@ -7,7 +7,7 @@ import {
   PreviewData,
 } from "next";
 import { ComponentType } from "react";
-import { BlockFactory } from "./lib/BlockFactory";
+
 import type { SanityClient } from "@sanity/client/sanityClient";
 import { ParsedUrlQuery } from "querystring";
 
@@ -31,7 +31,6 @@ export type SPBOptions = {
 };
 
 export type SPBResult<P> = {
-  blockFactory: BlockFactory;
   PageComponent: NextPage<FetchStaticPropsResult<any>["props"]>;
   getStaticPaths: GetStaticPaths;
   getStaticProps: GetStaticProps<P>;
@@ -67,6 +66,7 @@ export type fetchStaticPropsProps = {
   client: SanityClient;
   locales: LocationConfig;
   query: string;
+  previewQuery?: string;
   revalidate?: Revalidate;
 };
 

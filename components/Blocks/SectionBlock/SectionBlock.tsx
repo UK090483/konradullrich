@@ -1,38 +1,11 @@
 import React from "react";
 import clsx from "clsx";
-import { AppColor, Section as SectionType } from "types";
+import { AppColor } from "types";
 import RichText from "@components/RichText/RichText";
 import { Section } from "@components/Section/Section";
 import SanityImage from "@lib/SanityImage";
-import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
-import { richTextQuery } from "@components/RichText/richtTextQuery";
-
-export const sectionBlockQuery = (locale: string) => `
-_type == "section" => {
-  _key,
-  _type,
-  title,
-  bgColor,
-  type,
-  topSpace,
-  bottomSpace,
-  imagePosition,
-  'content':coalesce(
-      content_${locale}[]{${richTextQuery(locale)}},
-      content[]{${richTextQuery(locale)}}
-      ),
-  bgImage{${imageMeta}},
-  image{${imageMeta}}
-}
-`;
-
-export interface SectionResult
-  extends Omit<SectionType, "bgImage" | "content" | "image"> {
-  content: null | any;
-  bgImage: ImageMetaResult;
-  image: ImageMetaResult;
-  _key: string;
-}
+import { ImageMetaResult } from "@lib/SanityImage/query";
+import { SectionResult } from "./sectionBlockQuery";
 
 interface SectionBlockProps extends SectionResult {}
 

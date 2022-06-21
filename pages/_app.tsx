@@ -3,11 +3,14 @@ import "../styles/globals.css";
 import { Layout } from "@components/Layout/Layout";
 import { NextComponentType, NextPageContext } from "next";
 import Cookie from "@lib/Cookie/Cookie";
-import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicator";
+
 import Seo from "@lib/SeoService/Seo";
-import { PageResult } from "./slug";
+
 import { PageProps } from "@lib/SanityPageBuilder/types";
 import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSubscription";
+import { AppContextProvider } from "@components/AppContext/AppContext";
+import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicator";
+import { PageResult } from "./[[...slug]]";
 
 interface AppPropsWithStaticProps {
   pageProps: PageProps<PageResult>;
@@ -26,12 +29,13 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
 
   return (
     <>
-      <Layout {...pageProps}>
-        <Component {...pageProps} />
-      </Layout>
-      {preview && <PreviewIndicator />}
-      <Cookie />
-      {data?.seo && <Seo {...data.seo} />}
+      <AppContextProvider data={pageProps.data} hostName={"hostname"}>
+        <Layout {...pageProps}>
+          <Component {...pageProps} />
+        </Layout>
+        {preview && <PreviewIndicator show={preview} />}
+        <Cookie />
+      </AppContextProvider>
     </>
   );
 }

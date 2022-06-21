@@ -1,6 +1,6 @@
 import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
 
-export const personItemQuery = (locale: string) => `
+export const personItemQuery = (locale?: string) => `
 ...,
 _id,
 'avatar':avatar{${imageMeta}},

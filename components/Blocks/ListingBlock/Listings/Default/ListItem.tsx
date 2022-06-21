@@ -28,7 +28,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   return (
     <li className="list-none ">
       <Link
-        className={`flex flex-wrap md:flex-nowrap bg-white mx-auto w-full  ${className}`}
+        className={`flex flex-wrap md:flex-nowrap mx-auto w-full  ${className}`}
         href={`/${slug}` || "/"}
       >
         {featuredImage && (
@@ -41,10 +41,10 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
           </div>
         )}
         <div className={`px-3 w-full`}>
-          <Typo bold space={false} className=" pb-3 " variant="body-l">
+          <Typo space={false} className=" pb-3 text-primary">
             {subTitle ? subTitle.toUpperCase() : slug?.toUpperCase()}
           </Typo>
-          <Typo as={"h2"} variant="h2">
+          <Typo as={"h2"} variant="h2" className="text-text-light">
             {title}
           </Typo>
           <Typo className="w-full overflow-hidden whitespace-pre-line mb-4 ">

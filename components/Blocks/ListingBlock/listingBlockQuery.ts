@@ -9,7 +9,7 @@ import {
   testimonialQuery,
 } from "./Listings/Testimonials/testimaonialQuery";
 
-export const listItemQuery = (locale: string) => {
+export const listItemQuery = (locale?: string) => {
   return `
   ...,
   _id,
@@ -26,7 +26,7 @@ export const listItemQuery = (locale: string) => {
   `;
 };
 
-export const listingBlockQuery = (locale: string) => `
+export const listingBlockQuery = (locale?: string) => `
 _type == "listing" => {
   ...,
   eventVariant,
