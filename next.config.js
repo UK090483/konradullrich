@@ -21,17 +21,9 @@ const config = {
 
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos", "cdn.sanity.io"],
+    domains: ["picsum.photos", "cdn.sanity.io", "www.perspektivregion.eu"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
-    ];
-  },
+
   webpack(config, options) {
     const { dev, isServer } = options;
 

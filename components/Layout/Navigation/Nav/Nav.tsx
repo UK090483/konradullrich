@@ -17,10 +17,10 @@ const Nav: React.FC = () => {
           <Link href="/">
             <Logo />
           </Link>
-          <HeaderNavigation
+          {/* <HeaderNavigation
             items={data?.navigation || []}
             className="items-center justify-center hidden lg:flex"
-          />
+          /> */}
 
           <button
             data-testid="menu-overlay-toggle "

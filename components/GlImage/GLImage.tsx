@@ -3,6 +3,8 @@ import * as React from "react";
 import { Shaders, Node, GLSL } from "gl-react";
 import { Surface } from "gl-react-dom";
 import useEase from "./useEase";
+import Image, { ImageLoader } from "next/image";
+import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSubscription";
 
 const shaders = Shaders.create({
   test: {
@@ -43,7 +45,12 @@ export interface IGLImageProps {
   height?: number;
   duration?: number;
   mask?: string;
+  className?: string;
 }
+
+const myLoader: ImageLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`;
+};
 
 const GLImage: React.FunctionComponent<IGLImageProps> = ({
   effectFactor = 0.5,
@@ -57,6 +64,7 @@ const GLImage: React.FunctionComponent<IGLImageProps> = ({
   height = 500,
   duration = 500,
   mask = "triangle",
+  className,
 }) => {
   const prevState = React.useRef(false);
   const value = useEase({
@@ -71,14 +79,62 @@ const GLImage: React.FunctionComponent<IGLImageProps> = ({
     },
   });
 
+  const [Base42ImageA, setBase42ImageA] = React.useState(
+    "https://picsum.photos/id/237/200/300"
+  );
+  const [Base42ImageB, setBase42ImageB] = React.useState(
+    "https://picsum.photos/id/227/200/300"
+  );
+
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+
+  const handleLoad: React.ReactEventHandler<HTMLImageElement> = (e) => {
+    if (!e) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const image = e.currentTarget;
+
+    console.log(image);
+
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+
+    // We get the 2d drawing context and draw the image in the top left
+    canvas.getContext("2d")?.drawImage(image, 0, 0);
+
+    // Convert canvas to DataURL and log to console
+    const dataURL = canvas.toDataURL();
+    // console.log(dataURL);
+    // logs data:image/png;base64,wL2dvYWwgbW9yZ...
+
+    setBase42ImageA(dataURL);
+    //console.log(base64);
+  };
+
   return (
-    <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <Surface width={width} height={height}>
+    <div
+      className={className}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="relative w-0 h-0 overflow-hidden">
+        <canvas ref={canvasRef}></canvas>
+        <Image
+          // loader={myLoader}
+          onLoad={handleLoad}
+          layout={"fill"}
+          src={imageA}
+          sizes="50vw"
+          alt="dont show"
+        />
+      </div>
+      <Surface style={{ marginBottom: -8 }} width={width} height={height}>
         <Node
           shader={shaders.test}
           uniforms={{
-            f: imageA,
-            t: imageB,
+            f: Base42ImageA,
+            t: Base42ImageB,
             b: mask,
             progress: value,
             effectFactor: fade ? effectFactor : effectFactor * -1,

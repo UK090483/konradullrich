@@ -61,6 +61,11 @@ export default withLocalization({
       name: "featuredImage",
       type: "defaultImage",
     },
+    {
+      name: "featuredImages",
+      type: "array",
+      of: [{ type: "defaultImage" }],
+    },
 
     defaultBockContent,
 

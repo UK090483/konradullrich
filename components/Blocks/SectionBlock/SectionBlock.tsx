@@ -99,7 +99,7 @@ const Transition: React.FC<TransitionProps> = ({ color = "primary", pos }) => {
   return (
     <div className="relative">
       <div
-        className={clsx("absolute w-full", {
+        className={clsx("absolute w-full ", {
           "transform -translate-y-12": pos === "top",
         })}
       >

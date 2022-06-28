@@ -34,7 +34,7 @@ export default {
         { type: "navigationDropdown" },
         { type: "navigationMegaMenu" },
       ],
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     },
     {
       title: "Default / Seo",

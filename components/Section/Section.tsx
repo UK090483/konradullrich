@@ -29,7 +29,7 @@ export const Section: React.FC<SectionProps> = ({
     <SectionContextProvider bgColor={bg} width={width}>
       <Component
         id={id}
-        className={clsx(`w-full `, {
+        className={clsx(`w-full bg-background`, {
           "bg-white": bg === "white",
           "bg-primary": bg === "primary",
           "bg-secondary": bg === "secondary",
@@ -38,7 +38,7 @@ export const Section: React.FC<SectionProps> = ({
       >
         <InnerComponent
           style={style}
-          className={clsx("mx-auto", "container", className, {
+          className={clsx("mx-auto", className, {
             "md:max-w-screen-md ": width === "s",
             "lg:max-w-screen-lg ": width === "m",
             "xl:max-w-screen-xl ": width === "l",
