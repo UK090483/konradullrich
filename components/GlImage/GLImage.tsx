@@ -95,8 +95,6 @@ const GLImage: React.FunctionComponent<IGLImageProps> = ({
     if (!canvas) return;
     const image = e.currentTarget;
 
-    console.log(image);
-
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
 
@@ -121,11 +119,11 @@ const GLImage: React.FunctionComponent<IGLImageProps> = ({
       <div className="relative w-0 h-0 overflow-hidden">
         <canvas ref={canvasRef}></canvas>
         <Image
-          // loader={myLoader}
           onLoad={handleLoad}
-          layout={"fill"}
+          layout={"fixed"}
+          height={height}
+          width={width}
           src={imageA}
-          sizes="50vw"
           alt="dont show"
         />
       </div>

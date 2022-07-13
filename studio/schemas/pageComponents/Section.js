@@ -42,9 +42,9 @@ export default withLocalization({
           { title: "Medium", value: "m" },
           { title: "Wide", value: "l" },
           { title: "Narrow", value: "s" },
+          { title: "Full", value: "full" },
         ],
       },
-      initialValue: "normal",
     },
     // {
     //   title: "Background Color",

@@ -3,7 +3,16 @@ import SanityImage from "@lib/SanityImage";
 import { ImageMetaResult } from "@lib/SanityImage/query";
 import { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
 
-import React from "react";
+import css from "styled-jsx/css";
+
+const { className: imageStyle, styles } = css.resolve`
+  img {
+    border: red solid 10px !important;
+    clip-path: url(#svgPath);
+  }
+`;
+
+import React, { useState } from "react";
 
 type ImagePlugProps = {
   image?: ImageMetaResult | null;
@@ -31,32 +40,65 @@ const ImagePlug: React.FC<PlugProps<ImagePlugProps>> = (props) => {
   } = props.node;
 
   const hasRatio = ratio && ratio !== "auto";
-
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
   if (!image || !image.id) return null;
 
+  const handleMouseMove: React.MouseEventHandler<HTMLImageElement> = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
   return (
-    <div
-      className={clsx({
-        "w-full sm:w-1/4": customWidth === "1/4",
-        "w-full sm:w-1/3": customWidth === "1/3",
-        "w-full sm:w-1/2": customWidth === "1/2",
-        "w-full sm:w-2/3": customWidth === "2/3",
-        "w-full": customWidth === "full",
-        "mx-auto": !float && position === "center",
-        "ml-auto": !float && position === "right",
-        "mb-6 md:mb-12": !float,
-        "float-right ml-8 mb-2": float && position === "right",
-        "float-left mr-8 mb-2": float && ["left", "center"].includes(position),
-      })}
-    >
-      <AspectBox ratio={ratio}>
-        <SanityImage
-          image={image}
-          objectFit={hasRatio ? "cover" : undefined}
-          layout={hasRatio ? "fill" : "responsive"}
-          sizes={`(max-width: 350px) 350px ,(max-width: 640px) 100vw, ${sizesMap[customWidth]}vw`}
-        />
-      </AspectBox>
+    <div className={" w-full clipIt "} onMouseMove={handleMouseMove}>
+      <SanityImage
+        className={imageStyle}
+        image={image}
+        objectFit={hasRatio ? "cover" : undefined}
+        layout={hasRatio ? "fill" : "responsive"}
+      />
+
+      <svg height="0" width="0">
+        <defs>
+          <clipPath id="svgPath">
+            {/* <circle
+              stroke="#000000"
+              strokeMiterlimit="10"
+              cx={mousePosition.x}
+              cy={mousePosition.y}
+              r="300"
+            />
+            <text
+              x="60"
+              y="700"
+              textLength="900px"
+              lengthAdjust="spacing"
+              fontFamily="Vollkorn"
+              fontSize="230px"
+              fontWeight="700"
+              fontStyle="italic"
+            >
+              Blossom
+            </text> */}
+            <path
+              fill="#FFFFFF"
+              stroke="#000000"
+              strokeWidth="1.5794"
+              strokeMiterlimit="10"
+              d="M200,200.3c97.8-32.6,90.5-71.9,336-77.6
+        c92.4-2.1,98.1,81.6,121.8,116.4c101.7,149.9,53.5,155.9,14.7,178c-96.4,54.9,5.4,269-257,115.1c-57-33.5-203,46.3-263.7,20.1
+        c-33.5-14.5-132.5-45.5-95-111.1C125.9,246.6,98.6,139.1,215,100.3z"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+      {styles}
+      {/* <style jsx>{`
+        .clipIt {
+          border: red solid 1px;
+        }
+        .clipIt > span {
+          border: blue solid 1px;
+        }
+      `}</style> */}
     </div>
   );
 };

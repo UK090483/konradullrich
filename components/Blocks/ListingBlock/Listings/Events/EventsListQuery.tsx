@@ -1,4 +1,5 @@
 import { richTextQueryShort } from "@components/RichText/richtTextQuery";
+import { SanityBlock } from "@lib/SanityPageBuilder/lib/RichText";
 
 export const EventsListQuery = (locale?: string) => `
 
@@ -24,7 +25,7 @@ export const EventsListItemQuery: EventsListItemQueryFunction = (locale) => {
 };
 
 export type EventsListItemResult = {
-  content?: string | null;
+  content?: SanityBlock[];
   name?: string | null;
   description?: string | null;
   link?: string;

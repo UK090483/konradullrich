@@ -80,6 +80,7 @@ const Typo: React.FC<TypographyProps> = ({
           "text-3xl-mobile md:text-3xl font-header ": variant === "h3",
           "text-4xl-mobile md:text-4xl font-header ": variant === "h2",
           "text-5xl-mobile md:text-5xl font-header ": variant === "h1",
+          "text-primary ": variant === "subheading1",
           "font-black tracking-normal": isBold,
         }) + ` ${className}`
       }

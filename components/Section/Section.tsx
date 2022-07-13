@@ -29,7 +29,7 @@ export const Section: React.FC<SectionProps> = ({
     <SectionContextProvider bgColor={bg} width={width}>
       <Component
         id={id}
-        className={clsx(`w-full bg-background`, {
+        className={clsx(`w-full `, {
           "bg-white": bg === "white",
           "bg-primary": bg === "primary",
           "bg-secondary": bg === "secondary",
