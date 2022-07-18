@@ -60,3 +60,10 @@ export const useHomeRoute = () => {
 
   return { homeRoute, parseRoute, isHomeRoute };
 };
+
+export const useAppColor = () => {
+  const { data } = useContext(AppContext);
+
+  const primary = data?.primaryColor || data?.autoColors?.vibrant.background;
+  return { primary };
+};

@@ -9,15 +9,12 @@ import { sectionBlockQuery } from "@components/Blocks/SectionBlock/sectionBlockQ
 import type { layoutQueryResult } from "@components/Layout/LayoutQuery";
 import { layoutQuery } from "@components/Layout/LayoutQuery";
 
-import useParallax from "@hooks/useParallax/useParallax";
 import BodyParser from "@lib/SanityPageBuilder/lib/BodyParser";
 import fetchStaticPaths from "@lib/SanityPageBuilder/lib/fetchStaticPath/fetchStaticPath";
 import fetchStaticProps from "@lib/SanityPageBuilder/lib/fetchStaticProps/fetchStaticProps";
 import { sanityClient as client } from "@lib/SanityService/sanity.server";
-
 import type { GetStaticPaths, GetStaticProps } from "next";
 import appConfig from "../app.config.json";
-import useScreenshot from "@hooks/useScreenShot";
 const locales = appConfig.locales;
 
 export type PageResult = layoutQueryResult & appQueryResult & { content?: any };
@@ -25,9 +22,6 @@ export type PageResult = layoutQueryResult & appQueryResult & { content?: any };
 const Page = () => {
   const { data } = useAppContext();
 
-  useParallax();
-
-  useScreenshot();
   return (
     <BodyParser
       components={{
@@ -57,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (props) => {
   const { params, preview, locale } = props;
-  return await fetchStaticProps<PageResult>({
+  const res = await fetchStaticProps<PageResult>({
     locale,
     revalidate: true,
     params,
@@ -73,6 +67,8 @@ export const getStaticProps: GetStaticProps = async (props) => {
     locales,
     preview,
   });
+
+  return res;
 };
 
 export default Page;

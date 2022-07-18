@@ -22,13 +22,13 @@ const Nav: React.FC = () => {
             className="items-center justify-center hidden lg:flex"
           /> */}
 
-          <button
+          {/* <button
             data-testid="menu-overlay-toggle "
             onClick={() => setOpen((s) => !s)}
             className="lg:hidden mr-2"
           >
             <Svg className="w-[30px] h-[30px]" icon="hamburger" />
-          </button>
+          </button> */}
         </div>
       </nav>
     </>

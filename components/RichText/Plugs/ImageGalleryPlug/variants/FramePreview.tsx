@@ -5,6 +5,7 @@ import {
   ImageGalleryPlugItem,
   ImageGalleryPlugResult,
 } from "../ImageGalleryPlug";
+import { useAppColor } from "@components/AppContext/AppContext";
 
 const FramePreview: React.FC<ImageGalleryPlugResult> = (props) => {
   const { items, rows = 4, rows_mobile = 2, ratio = "1:1" } = props;
@@ -29,11 +30,11 @@ const Screen: React.FC<ImageGalleryPlugItem> = (props) => {
   const [offset, setOffset] = useState(0);
   const [direction, setDirection] = useState(true);
 
+  const { primary } = useAppColor();
+
   useEffect(() => {
     if (!ref.current || !wrapRef.current) return;
     const getOffset = () => {
-      console.log("getOffset");
-
       if (!ref.current || !wrapRef.current) return;
       const { height: wrapHeight } = wrapRef.current.getBoundingClientRect();
       const { height } = ref.current.getBoundingClientRect();
@@ -52,6 +53,7 @@ const Screen: React.FC<ImageGalleryPlugItem> = (props) => {
   return (
     <div
       ref={wrapRef}
+      style={{ borderColor: primary }}
       className={clsx(
         "relative overflow-hidden rounded-xl border-4 border-primary",
         {

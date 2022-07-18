@@ -40,19 +40,28 @@ module.exports = {
           DEFAULT: "#ebebeb",
           dark: "#009eeb",
         },
-        background: {
+        // background: {
+        //   light: "#f4f4f1",
+        //   DEFAULT: "#0a192f",
+        //   dark: "#009eeb",
+        // },
+        // text: {
+        //   DEFAULT: "#8892b0",
+        //   light: "#d0d4e0",
+        // },
+        text: {
           light: "#f4f4f1",
           DEFAULT: "#0a192f",
           dark: "#009eeb",
         },
-        text: {
+        background: {
           DEFAULT: "#8892b0",
           light: "#d0d4e0",
         },
         black: "#000000",
         white: "#ffffff",
         primary: "#F3BD06",
-        // primary: "#0FC2C0",
+        // primary: "#8187F9",
         secondary: "#D22D30",
         red: "#D22D30",
       },

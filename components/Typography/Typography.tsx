@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { useAppColor } from "@components/AppContext/AppContext";
 
 type ElementKeys = keyof Pick<
   JSX.IntrinsicElements,
@@ -59,6 +60,8 @@ const Typo: React.FC<TypographyProps> = ({
   const isBold =
     bold !== undefined ? bold : boldMap.includes(variant as string);
 
+  const { primary } = useAppColor();
+
   if (spacer) {
     return <div className="h-14" />;
   }
@@ -66,6 +69,7 @@ const Typo: React.FC<TypographyProps> = ({
   return (
     <Component
       data-variant={variant}
+      style={{ color: variant === "subheading1" ? primary : undefined }}
       className={
         clsx({
           "pb-[0.8em]": space !== false && variant !== "body",

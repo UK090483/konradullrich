@@ -22,7 +22,7 @@ export const Layout: React.FC = (props) => {
         </Header>
         <Head />
         <main id="main-content" className=" relative min-h-screen select-none">
-          <Background className=" fixed top-0 inset-0 -z-10 " />
+          <Background className="fixed top-0 left-0 right-0 -z-10 " />
           {children}
         </main>
         {data && <Footer />}

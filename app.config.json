@@ -1,8 +1,8 @@
 {
   "locales": {
-    "de": { "title": "Deutsch", "isDefault": true, "flag": "🇩🇪" },
+    "en": { "title": "Englisch", "isDefault": true, "flag": "🇺🇸" },
     "da": { "title": "Dänisch", "flag": "🇩🇰" },
-    "en": { "title": "Englisch", "flag": "🇺🇸" }
+    "de": { "title": "Deutsch", "flag": "🇩🇪" }
   },
   "colors": {
     "primary": "#000000",

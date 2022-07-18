@@ -79,60 +79,18 @@ const GLImage: React.FunctionComponent<IGLImageProps> = ({
     },
   });
 
-  const [Base42ImageA, setBase42ImageA] = React.useState(
-    "https://picsum.photos/id/237/200/300"
-  );
-  const [Base42ImageB, setBase42ImageB] = React.useState(
-    "https://picsum.photos/id/227/200/300"
-  );
-
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
-
-  const handleLoad: React.ReactEventHandler<HTMLImageElement> = (e) => {
-    if (!e) return;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const image = e.currentTarget;
-
-    canvas.width = image.naturalWidth;
-    canvas.height = image.naturalHeight;
-
-    // We get the 2d drawing context and draw the image in the top left
-    canvas.getContext("2d")?.drawImage(image, 0, 0);
-
-    // Convert canvas to DataURL and log to console
-    const dataURL = canvas.toDataURL();
-    // console.log(dataURL);
-    // logs data:image/png;base64,wL2dvYWwgbW9yZ...
-
-    setBase42ImageA(dataURL);
-    //console.log(base64);
-  };
-
   return (
     <div
       className={className}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="relative w-0 h-0 overflow-hidden">
-        <canvas ref={canvasRef}></canvas>
-        <Image
-          onLoad={handleLoad}
-          layout={"fixed"}
-          height={height}
-          width={width}
-          src={imageA}
-          alt="dont show"
-        />
-      </div>
       <Surface style={{ marginBottom: -8 }} width={width} height={height}>
         <Node
           shader={shaders.test}
           uniforms={{
-            f: Base42ImageA,
-            t: Base42ImageB,
+            f: imageA,
+            t: imageB,
             b: mask,
             progress: value,
             effectFactor: fade ? effectFactor : effectFactor * -1,

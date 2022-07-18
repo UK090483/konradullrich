@@ -8,16 +8,6 @@ const useParallax = () => {
     return () => {
       controller.destroy();
     };
-    // console.log("para init");
-
-    // const elements = getElements();
-    // console.log(elements);
-    // const scrollHandler = getScrollHandler(() => updateElements(elements));
-    // document.addEventListener("scroll", scrollHandler, false);
-    // return () => {
-    //   console.log("para by");
-    //   document.removeEventListener("scroll", scrollHandler, false);
-    // };
   });
 };
 

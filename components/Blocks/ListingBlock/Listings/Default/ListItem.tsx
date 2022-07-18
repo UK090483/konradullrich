@@ -10,6 +10,7 @@ import { ListItemResult } from "../../listingBlockQuery";
 import GlImageList from "@components/GlImage/GlImageList";
 import parseSanityImage from "@components/GlImage/utils/parseSanityImage";
 import useElementSize from "@hooks/useElementSize";
+import AspectBox from "@components/AspectBox";
 
 interface ListItemProps extends ListItemResult {
   className?: string;
@@ -33,29 +34,26 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   //   featuredImages &&
   //   parseSanityImage({ images: featuredImages, w: width * 2, h: width * 2 });
 
-  const parsedFeaturedImages =
-    featuredImages &&
-    (featuredImages.filter((i) => !!i).map((i) => i?.url) as string[]);
+  const parsedFeaturedImages = null;
 
   return (
-    <li ref={ref} className="list-none  w-full">
+    <li ref={ref} className="list-none w-full max-w-2xl   lg:max-w-7xl mx-auto">
       <Link
-        className={`flex flex-wrap md:flex-nowrap mx-auto w-full  px-20 ${className}`}
+        className={`grid lg:grid-cols-2 mx-auto w-full gap-8 mb-12 lg:mb-24 px-3 ${className}`}
         href={`/${slug}` || "/"}
       >
         {!parsedFeaturedImages && featuredImage && (
-          <div
-            className={`relative w-full    ${
-              position === "left" ? "" : "md:order-2"
+          <AspectBox
+            className={`rounded-2xl overflow-hidden  shadow-2xl ${
+              position === "left" ? "" : "lg:order-2"
             }`}
           >
             <SanityImage
-              width={width / 2}
-              height={width / 2}
+              id="transition-Item"
               image={featuredImage}
-              objectFit="contain"
+              objectFit="cover"
             />
-          </div>
+          </AspectBox>
         )}
 
         {parsedFeaturedImages && (
@@ -73,17 +71,15 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
             />
           </div>
         )}
-        <div className={`p-8 w-full`}>
-          <Typo space={false} className=" pb-3 text-primary">
+        <div>
+          <Typo variant="subheading1">
             {subTitle ? subTitle.toUpperCase() : slug?.toUpperCase()}
           </Typo>
-          <Typo as={"h2"} variant="h2" className="text-text-light">
+          <Typo as={"h2"} variant="h3" className="text-text-light">
             {title}
           </Typo>
-          <Typo className="w-full overflow-hidden whitespace-pre-line mb-4 ">
-            {description}
-          </Typo>
-          <Button tabIndex={-1}>Mehr erfahren</Button>
+          <Typo className="w-full  whitespace-pre-line  ">{description}</Typo>
+          <Button tabIndex={-1}>Read More</Button>
         </div>
       </Link>
     </li>

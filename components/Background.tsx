@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useInterval } from "react-use";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  useInterval,
+  useIsomorphicLayoutEffect,
+  useWindowScroll,
+  useWindowSize,
+} from "react-use";
+import { useAppColor } from "./AppContext/AppContext";
 
 export interface IBackgroundProps {
   className?: string;
@@ -8,8 +14,37 @@ export interface IBackgroundProps {
 export function Background(props: IBackgroundProps) {
   const { className } = props;
 
+  // const [scrollHeight, setScrollHeight] = useState<number>(1);
+
+  // const { y } = useWindowScroll();
+
+  // const { height } = useWindowSize(1, 1);
+
+  // useIsomorphicLayoutEffect(() => {
+  //   let body = document.body,
+  //     html = document.documentElement,
+  //     height = Math.max(
+  //       body?.scrollHeight,
+  //       body?.offsetHeight,
+  //       html?.clientHeight,
+  //       html?.scrollHeight,
+  //       html?.offsetHeight
+  //     );
+  //   setScrollHeight(height);
+  // }, []);
+
+  // const pro = y ? y / (scrollHeight - height) : 0;
+
+  // console.log({ height, y, scrollHeight, pro });
+
   return (
-    <div className={className}>
+    <div
+      // style={{
+      //   transform: ` translateY(-${pro * 50}%)`,
+      //   height: "200vh",
+      // }}
+      className={className}
+    >
       <Blur />
       <Blur />
       <Blur />
@@ -33,7 +68,8 @@ type BlurProps = {
 };
 const Blur: React.FC<BlurProps> = (props) => {
   const { duration = 10000, size = 20 } = props;
-  const [position, setPosition] = useState(getRandomPosition());
+  const [position, setPosition] = useState("");
+  const { primary } = useAppColor();
 
   useEffect(() => {
     setPosition(getRandomPosition());
@@ -46,13 +82,15 @@ const Blur: React.FC<BlurProps> = (props) => {
   return (
     <div
       style={{
+        transition: `transform ${duration} ms`,
         transform: position,
         transitionDuration: duration + "ms",
         transitionTimingFunction: "linear",
         width: size + "vw",
         height: size + "vw",
+        ...(primary ? { backgroundColor: primary } : {}),
       }}
-      className="absolute  opacity-50 transition-all right-0 left-0 w-80 h-80 bg-primary rounded-full blur-3xl "
+      className="absolute  opacity-50  right-0 left-0 w-80 h-80 bg-primary rounded-full blur-3xl "
     ></div>
   );
 };

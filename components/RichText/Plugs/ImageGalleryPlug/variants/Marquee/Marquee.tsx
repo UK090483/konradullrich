@@ -7,7 +7,6 @@ import {
   ImageGalleryPlugResult,
 } from "../../ImageGalleryPlug";
 import SanityImage from "@lib/SanityImage";
-import { useLockBodyScroll, useScrolling, useWindowScroll } from "react-use";
 
 const Marquee: React.FC<ImageGalleryPlugResult> = (props) => {
   const { items, rows = 4, rows_mobile = 2, ratio = "1:1" } = props;
@@ -51,7 +50,7 @@ const Slide: React.FC<{
   );
 
   return (
-    <div className=" w-full  overflow-x-hidden overflow-y-visible py-16  bg-slate-300">
+    <div className=" w-full  overflow-x-hidden overflow-y-visible py-16  ">
       <div
         onTransitionEnd={onTransitionEnd}
         style={{

@@ -2,6 +2,7 @@ import { NavigationQuery, NavigationResult } from "@lib/Navigation/query";
 import { footerQuery, FooterQueryResult } from "./Footer/FooterQuery";
 
 export const layoutQuery = (locale: string = "") => `
+
 'footer': {${footerQuery(locale)}},
 ${NavigationQuery(locale)},
 'title':coalesce( title_${locale}, title),
