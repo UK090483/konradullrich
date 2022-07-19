@@ -82,7 +82,11 @@ const Slide: React.FC<{
                 "w-[35vw] lg:w-[15vw]": !isLandscape,
               })}
             >
-              <SanityImage image={image} layout={"responsive"} />
+              <SanityImage
+                sizes={isLandscape ? "800px" : "300px"}
+                image={image}
+                layout={"responsive"}
+              />
             </div>
           );
         })}
