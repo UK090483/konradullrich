@@ -1,8 +1,6 @@
-import Svg from "@components/Svg";
 import React from "react";
 import { Link } from "@components/Link";
 import { Logo } from "@components/Layout/Logo";
-import { HeaderNavigation } from "@lib/Navigation";
 import { useAppContext } from "@components/AppContext/AppContext";
 
 const Nav: React.FC = () => {

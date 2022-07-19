@@ -1,9 +1,14 @@
-import React from "react";
+import { useAppColor } from "@components/AppContext/AppContext";
+import React, { HTMLAttributes } from "react";
 
 export const Logo = () => {
+  const { primary } = useAppColor();
   return (
-    <div className=" text-primary font-bold  flex items-center justify-center border-primary rounded-full border-4 w-12 h-12 leading-none">
-      KU
+    <div
+      style={{ color: primary }}
+      className="animate-fadeIn text-primary font-bold  flex items-center justify-center border-current rounded-full border-4 w-12 h-12 leading-3"
+    >
+      <span className=" translate-y-[1px] ">KU</span>
     </div>
   );
 };
