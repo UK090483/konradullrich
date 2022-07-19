@@ -50,7 +50,7 @@ const Slide: React.FC<{
   );
 
   return (
-    <div className=" w-full  overflow-x-hidden overflow-y-visible py-16  ">
+    <div className=" w-full  overflow-x-hidden overflow-y-visible py-16  animator ">
       <div
         onTransitionEnd={onTransitionEnd}
         style={{

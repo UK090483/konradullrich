@@ -55,7 +55,7 @@ const Screen: React.FC<ImageGalleryPlugItem> = (props) => {
       ref={wrapRef}
       style={{ borderColor: primary }}
       className={clsx(
-        "relative overflow-hidden rounded-xl border-4 border-primary",
+        "relative overflow-hidden rounded-xl border-4 border-primary animator",
         {
           "w-[90vw] h-[50vw] lg:w-[50vw] lg:h-[28vw] ": size === "l",
           "w-[250px] h-[420px] mt-12": size === undefined,

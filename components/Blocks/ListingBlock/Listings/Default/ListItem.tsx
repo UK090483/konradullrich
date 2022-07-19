@@ -7,8 +7,8 @@ import { Link } from "@components/Link";
 import SanityImage from "@lib/SanityImage";
 import Button from "@components/Button/Button";
 import { ListItemResult } from "../../listingBlockQuery";
-import GlImageList from "@components/GlImage/GlImageList";
-import parseSanityImage from "@components/GlImage/utils/parseSanityImage";
+// import GlImageList from "@components/GlImage/GlImageList";
+// import parseSanityImage from "@components/GlImage/utils/parseSanityImage";
 import useElementSize from "@hooks/useElementSize";
 import AspectBox from "@components/AspectBox";
 
@@ -44,7 +44,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
       >
         {!parsedFeaturedImages && featuredImage && (
           <AspectBox
-            className={`rounded-2xl overflow-hidden  shadow-2xl ${
+            className={`rounded-2xl overflow-hidden animator shadow-2xl ${
               position === "left" ? "" : "lg:order-2"
             }`}
           >
@@ -56,7 +56,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
           </AspectBox>
         )}
 
-        {parsedFeaturedImages && (
+        {/* {parsedFeaturedImages && (
           <div
             className={`relative     ${
               position === "left" ? "" : "md:order-2"
@@ -70,7 +70,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
               images={parsedFeaturedImages}
             />
           </div>
-        )}
+        )} */}
         <div>
           <Typo variant="subheading1">
             {subTitle ? subTitle.toUpperCase() : slug?.toUpperCase()}

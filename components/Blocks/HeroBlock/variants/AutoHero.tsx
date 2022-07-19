@@ -36,7 +36,7 @@ const AutoHero: React.FC = (props) => {
 
       {image && (
         <AspectBox
-          className={`relative w-full md:w-1/2 mx-auto    shadow-2xl rounded-xl overflow-hidden `}
+          className={`relative w-full md:w-1/2 mx-auto max-w-2xl  shadow-2xl rounded-xl overflow-hidden `}
         >
           <SanityImage image={image} layout="fill" objectFit="cover" />
         </AspectBox>

@@ -15,12 +15,24 @@ import fetchStaticProps from "@lib/SanityPageBuilder/lib/fetchStaticProps/fetchS
 import { sanityClient as client } from "@lib/SanityService/sanity.server";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import appConfig from "../app.config.json";
+import useAnimation from "@lib/Animation/useAnimation";
 const locales = appConfig.locales;
 
 export type PageResult = layoutQueryResult & appQueryResult & { content?: any };
 
 const Page = () => {
   const { data } = useAppContext();
+
+  useAnimation({
+    selector: "p,h1,h2,h3,h4,h5,h6,.animator",
+    hideStyle: { transform: "translateY(100px)", opacity: 0 },
+    showStyle: { transform: "translateY(0)", opacity: 1 },
+    initialStyle: {
+      transition: "all 0.4s",
+      transform: "translateY(-100px)",
+      opacity: 0,
+    },
+  });
 
   return (
     <BodyParser

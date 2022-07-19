@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { children, onClick = () => {}, href, external, tabIndex = 0 } = props;
   const { primary } = useAppColor();
   const className =
-    "relative group inline-block px-8 md:px-12 py-1 md:py-2  rounded-md text-base-mobile md:text-base border-2 border-primary  text-primary hover:!border-transparent  whitespace-nowrap hover:!text-black ";
+    "animator relative group inline-block px-8 md:px-12 py-1 md:py-2  rounded-md text-base-mobile md:text-base border-2 border-primary  text-primary hover:!border-transparent  whitespace-nowrap hover:!text-black ";
 
   if (href) {
     return (
