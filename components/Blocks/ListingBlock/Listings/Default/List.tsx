@@ -1,6 +1,6 @@
+import React from "react";
 import { Section } from "@components/Section/Section";
 import Typo from "@components/Typography/Typography";
-import React from "react";
 
 interface ListProps {
   title?: string | null;

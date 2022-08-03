@@ -1,6 +1,6 @@
+import * as React from "react";
 import { Section } from "@components/Section/Section";
 import Typo from "@components/Typography/Typography";
-import * as React from "react";
 
 import PersonListItem from "./PersonListItem";
 

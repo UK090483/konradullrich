@@ -1,23 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
-import useElementSize from "@hooks/useElementSize";
 import clsx from "clsx";
+import { useToggle, useWindowSize } from "react-use";
+import { IPad, IPhone6, MacbookPro } from "react-device-mockups";
+import useElementSize from "@hooks/useElementSize";
 
 import { linkQuery, LinkResult } from "@lib/Navigation/query";
 import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
-import ImageGalleryPlugItem from "./variants/Grid/ImageGalleryItem";
-import ImageGalleryItem from "./variants/Grid/ImageGalleryItem";
 import { AppColor } from "types";
 import Typo from "@components/Typography/Typography";
 import GLImage from "@components/GlImage/GLImage";
 import parseSanityImage from "@components/GlImage/utils/parseSanityImage";
 import urlFor from "@lib/SanityService/sanity.imageBuilder";
-import { useToggle, useWindowSize } from "react-use";
 import GlImageList from "@components/GlImage/GlImageList";
 import useMasks from "@components/GlImage/useMasks";
 
-import { IPad, IPhone6, MacbookPro } from "react-device-mockups";
 import "html5-device-mockups/dist/device-mockups.min.css";
 import SanityImage from "@lib/SanityImage";
+import ImageGalleryItem from "./variants/Grid/ImageGalleryItem";
+import ImageGalleryPlugItem from "./variants/Grid/ImageGalleryItem";
 import FramePreview from "./variants/FramePreview";
 import ImageGalleryGrid from "./variants/Grid/Grid";
 import Marquee from "./variants/Marquee/Marquee";

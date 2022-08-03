@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState, useMemo } from "react";
 
 import clsx from "clsx";
 
+import SanityImage from "@lib/SanityImage";
 import {
   ImageGalleryPlugItem,
   ImageGalleryPlugResult,
 } from "../../ImageGalleryPlug";
-import SanityImage from "@lib/SanityImage";
 
 const Marquee: React.FC<ImageGalleryPlugResult> = (props) => {
   const { items, rows = 4, rows_mobile = 2, ratio = "1:1" } = props;

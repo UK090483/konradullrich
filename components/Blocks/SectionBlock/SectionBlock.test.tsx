@@ -1,6 +1,6 @@
 import { mockClient } from "@lib/SanityPageBuilder/lib/MockClient/MockClient";
-import { sectionBlockQuery } from "./sectionBlockQuery";
 import { customRender, screen, testImage, testText } from "@tests/test-utils";
+import { sectionBlockQuery } from "./sectionBlockQuery";
 import SectionBlock from "./SectionBlock";
 
 const database: any[] = [];
@@ -15,8 +15,7 @@ describe("SectionBlock", () => {
     }`);
   });
   // it("smoke", () => {
-  //   customRender(<SectionBlock _key="testKey" />);
-  //   expect(screen.getByTestId("sectionBlock"));
+  // expect(screen.getByTestId("sectionBlock"));
   // });
   // it("renders title to id", () => {
   //   customRender(<SectionBlock _key="testKey" title="testTitle" />);

@@ -1,9 +1,8 @@
 import clsx from "clsx";
+import React from "react";
 import SanityImage from "@lib/SanityImage";
 import { ImageMetaResult } from "@lib/SanityImage/query";
 import { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
-
-import React from "react";
 
 type ImagePlugProps = {
   image?: ImageMetaResult | null;

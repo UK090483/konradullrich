@@ -1,9 +1,9 @@
+import React from "react";
+import { useLockBodyScroll } from "react-use";
 import Portal from "@components/Portal";
 import Svg from "@components/Svg";
 import useAnimationDelay from "@hooks/useAnimationDelay";
 import { LangSwitch } from "@lib/LangSwitcherService/LangSwitch";
-import React from "react";
-import { useLockBodyScroll } from "react-use";
 import DefaultNavigationItemBase from "./components/NavItem/NavigationItemBase";
 import DefaultNavigationLink from "./components/NavItem/NavigationLink";
 import {

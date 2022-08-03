@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import SanityImage from "@lib/SanityImage";
+import { useAppColor } from "@components/AppContext/AppContext";
 import {
   ImageGalleryPlugItem,
   ImageGalleryPlugResult,
 } from "../ImageGalleryPlug";
-import { useAppColor } from "@components/AppContext/AppContext";
 
 const FramePreview: React.FC<ImageGalleryPlugResult> = (props) => {
   const { items, rows = 4, rows_mobile = 2, ratio = "1:1" } = props;

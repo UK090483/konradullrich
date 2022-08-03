@@ -4,10 +4,10 @@ import clsx from "clsx";
 
 import { linkQuery, LinkResult } from "@lib/Navigation/query";
 import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
-import ImageGalleryPlugItem from "./variants/Grid/ImageGalleryItem";
-import ImageGalleryItem from "./variants/Grid/ImageGalleryItem";
 import { AppColor } from "types";
 import Typo from "@components/Typography/Typography";
+import ImageGalleryPlugItem from "./variants/Grid/ImageGalleryItem";
+import ImageGalleryItem from "./variants/Grid/ImageGalleryItem";
 
 export const imageGalleryPlugQuery = `
 _type == "imageGalleryPlug" => {

@@ -1,7 +1,7 @@
-import exitPreview from "./exitPreview";
-import startPreview from "./startPreview";
 import { NextApiRequest, NextApiResponse } from "next";
 import type { SanityClient } from "@sanity/client/sanityClient";
+import exitPreview from "./exitPreview";
+import startPreview from "./startPreview";
 
 type getPreviewApiProps = {
   root?: string;

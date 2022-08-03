@@ -2,9 +2,9 @@ import * as React from "react";
 
 import { Shaders, Node, GLSL } from "gl-react";
 import { Surface } from "gl-react-dom";
-import useEase from "./useEase";
 import Image, { ImageLoader } from "next/image";
 import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSubscription";
+import useEase from "./useEase";
 
 const shaders = Shaders.create({
   test: {

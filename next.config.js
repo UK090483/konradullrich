@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const appConfig = require("./app.config.json");
-const withPWA = require("next-pwa");
 
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
@@ -22,7 +21,7 @@ const config = {
 
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos", "cdn.sanity.io", "www.perspektivregion.eu"],
+    domains: ["picsum.photos", "cdn.sanity.io"],
   },
 
   webpack(config, options) {

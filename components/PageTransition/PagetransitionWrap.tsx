@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { useEffect, useRef, useState, Children } from "react";
-import { useIsomorphicLayoutEffect } from "react-use";
+import React, { useRef, useState } from "react";
+import { useIsomorphicLayoutEffect, usePrevious } from "react-use";
 
 export interface IPageTransitionWrapProps {
   id: string;
@@ -61,22 +61,9 @@ export const PageTransitionWrap: React.FC<IPageTransitionWrapProps> = (
         transformOrigin: "center",
         opacity: transitionMap[transition].opacity,
       }}
-      className={clsx("transition-all ", {
-        // "opacity-0": transition === "out",
-        // "opacity-100": transition === "in",
-        // "opacity-100": transition === "init",
-      })}
+      className={clsx("transition-all")}
     >
       {activeComponent}
-      {/* <div
-        style={{
-          transform: transitionMap[transition].transform,
-          transitionDuration: duration + "ms",
-          transformOrigin: "center",
-          opacity: transitionMap[transition].opacity,
-        }}
-        className="fixed top-0 left-0 z-40 w-12 h-12 transition-all  rounded-full bg-orange-700"
-      ></div> */}
     </div>
   );
 };

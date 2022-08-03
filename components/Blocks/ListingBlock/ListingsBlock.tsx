@@ -1,6 +1,6 @@
+import React from "react";
 import EventsList from "@components/Blocks/ListingBlock/Listings/Events/EventsList";
 import Listing from "@components/Blocks/ListingBlock/Listings/Default/Listing";
-import React from "react";
 import PersonList from "./Listings/Persons/PersonList";
 import TestimonialList from "./Listings/Testimonials/TestimonialList";
 import { ListingBlogResult } from "./listingBlockQuery";

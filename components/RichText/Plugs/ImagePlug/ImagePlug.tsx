@@ -1,9 +1,9 @@
+import React, { useState } from "react";
 import clsx from "clsx";
+import css from "styled-jsx/css";
 import SanityImage from "@lib/SanityImage";
 import { ImageMetaResult } from "@lib/SanityImage/query";
 import { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
-
-import css from "styled-jsx/css";
 
 const { className: imageStyle, styles } = css.resolve`
   img {
@@ -11,8 +11,6 @@ const { className: imageStyle, styles } = css.resolve`
     clip-path: url(#svgPath);
   }
 `;
-
-import React, { useState } from "react";
 
 type ImagePlugProps = {
   image?: ImageMetaResult | null;

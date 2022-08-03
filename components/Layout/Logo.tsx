@@ -1,5 +1,5 @@
-import { useAppColor } from "@components/AppContext/AppContext";
 import React, { HTMLAttributes } from "react";
+import { useAppColor } from "@components/AppContext/AppContext";
 
 export const Logo = () => {
   const { primary } = useAppColor();

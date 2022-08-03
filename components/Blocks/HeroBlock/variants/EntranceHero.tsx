@@ -1,7 +1,7 @@
-import Typo from "@components/Typography/Typography";
 import clsx from "clsx";
 import React from "react";
 import ReactTypingEffect from "react-typing-effect";
+import Typo from "@components/Typography/Typography";
 
 const EntranceHero: React.FC = () => {
   return (

@@ -1,10 +1,9 @@
+import * as React from "react";
 import { Section } from "@components/Section/Section";
 import Typo from "@components/Typography/Typography";
-import * as React from "react";
+import EventsListItem from "./EventsListItem";
 import Filter from "../Default/Filter";
 import useFilter from "../useFilter";
-
-import EventsListItem from "./EventsListItem";
 
 interface IEventsListProps {
   items?: any[] | null;

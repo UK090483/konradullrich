@@ -1,6 +1,6 @@
+import * as React from "react";
 import Typo from "@components/Typography/Typography";
 import UnderConstruction from "@components/UnderConstruction";
-import * as React from "react";
 
 interface IIndexPageProps {}
 

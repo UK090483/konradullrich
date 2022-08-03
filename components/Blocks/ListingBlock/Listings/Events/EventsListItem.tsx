@@ -1,9 +1,9 @@
+import * as React from "react";
 import Button from "@components/Button/Button";
 import RichText from "@components/RichText/RichText";
 import Svg from "@components/Svg";
 import Typo from "@components/Typography/Typography";
 
-import * as React from "react";
 import { EventsListItemResult } from "./EventsListQuery";
 
 interface IEventsListItemProps extends EventsListItemResult {

@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
 import React from "react";
 import ReactPlayer from "react-player/lazy";
+import { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
 
 interface IPlayerPlugProps {
   url?: string | null;

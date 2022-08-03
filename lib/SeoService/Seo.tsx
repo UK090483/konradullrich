@@ -1,6 +1,6 @@
+import React from "react";
 import { NextSeo } from "next-seo";
 import { SeoType } from "./SeoQuerys";
-import React from "react";
 
 interface SeoProps extends SeoType {
   pageUrl?: string;

@@ -1,6 +1,6 @@
+import React from "react";
 import List from "./List";
 
-import React from "react";
 import { Card } from "./Card";
 import { Carousel } from "./Carousel";
 

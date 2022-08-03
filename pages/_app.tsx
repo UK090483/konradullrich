@@ -1,14 +1,14 @@
 import "../styles/globals.css";
-
-import { Layout } from "@components/Layout/Layout";
 import { NextComponentType, NextPageContext } from "next";
+import { useRouter } from "next/router";
+import { Layout } from "@components/Layout/Layout";
+
 import Cookie from "@lib/Cookie/Cookie";
 
 import { PageProps } from "@lib/SanityPageBuilder/types";
 import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSubscription";
 import { AppContextProvider } from "@components/AppContext/AppContext";
 import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicator";
-import { PageResult } from "./[[...slug]]";
 
 // import {
 //   AnimatePresence,
@@ -17,8 +17,8 @@ import { PageResult } from "./[[...slug]]";
 //   motion,
 // } from "framer-motion";
 import { animations } from "@lib/animations";
-import { useRouter } from "next/router";
 import { PageTransitionWrap } from "@components/PageTransition/PagetransitionWrap";
+import { PageResult } from "./[[...slug]]";
 
 interface AppPropsWithStaticProps {
   pageProps: PageProps<PageResult>;
@@ -34,6 +34,8 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
   });
 
   const pageProps = { ..._pageProps, ...data };
+
+  const { asPath } = useRouter();
 
   const animation = animations[0];
 
@@ -51,8 +53,12 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
                 variants={animation.variants}
                 transition={animation.transition}
               > */}
-          <PageTransitionWrap id={pageProps._id || "no"}>
-            <AppContextProvider data={pageProps.data} hostName={"hostname"}>
+          <PageTransitionWrap id={pageProps._id || asPath || "no"}>
+            <AppContextProvider
+              key={pageProps._id || asPath || "no"}
+              data={pageProps.data}
+              hostName={"hostname"}
+            >
               <Component {...pageProps} />
             </AppContextProvider>
           </PageTransitionWrap>

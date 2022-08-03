@@ -1,5 +1,5 @@
-import useTimeOut from "@hooks/useTimeout";
 import React, { useRef, useState } from "react";
+import useTimeOut from "@hooks/useTimeout";
 
 import GLImage, { IGLImageProps } from "./GLImage";
 import useMasks from "./useMasks";

@@ -1,9 +1,8 @@
+import ReactTooltip from "react-tooltip";
+import * as React from "react";
 import Typo from "@components/Typography/Typography";
 import SanityImage from "@lib/SanityImage";
 import { ImageMetaResult } from "@lib/SanityImage/query";
-import ReactTooltip from "react-tooltip";
-
-import * as React from "react";
 
 interface IPersonListItemProps {
   name?: null | string;

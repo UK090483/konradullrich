@@ -6,11 +6,11 @@ import { Link } from "@components/Link";
 
 import SanityImage from "@lib/SanityImage";
 import Button from "@components/Button/Button";
-import { ListItemResult } from "../../listingBlockQuery";
 // import GlImageList from "@components/GlImage/GlImageList";
 // import parseSanityImage from "@components/GlImage/utils/parseSanityImage";
 import useElementSize from "@hooks/useElementSize";
 import AspectBox from "@components/AspectBox";
+import { ListItemResult } from "../../listingBlockQuery";
 
 interface ListItemProps extends ListItemResult {
   className?: string;

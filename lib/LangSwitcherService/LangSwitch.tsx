@@ -1,7 +1,7 @@
-import { useHomeRoute } from "@components/Layout/LayoutContext";
-import { Link } from "@components/Link";
 import { useRouter } from "next/router";
 import React from "react";
+import { useHomeRoute } from "@components/Layout/LayoutContext";
+import { Link } from "@components/Link";
 import { LangSwitcherResult } from "./LangSwitcherQuery";
 
 export interface LangSwitchProps {

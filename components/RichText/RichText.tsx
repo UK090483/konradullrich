@@ -1,12 +1,12 @@
 import React from "react";
-import link from "./marks/link";
-
-import ImageGalleryPlug from "./Plugs/ImageGalleryPlug/ImageGalleryPlug";
 import Typo from "@components/Typography/Typography";
-import SpacerPlug from "./Plugs/Spacer";
 import SanityRichText, {
   SanityBlock,
 } from "@lib/SanityPageBuilder/lib/RichText";
+import link from "./marks/link";
+
+import ImageGalleryPlug from "./Plugs/ImageGalleryPlug/ImageGalleryPlug";
+import SpacerPlug from "./Plugs/Spacer";
 import List from "./list/List";
 import ImagePlug from "./Plugs/ImagePlug/ImagePlug";
 import EmbedHTML from "./Plugs/EmbedHTML/EmbedHTML";

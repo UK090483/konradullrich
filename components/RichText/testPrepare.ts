@@ -1,6 +1,5 @@
-import { SanityBlock } from "@lib/SanityPageBuilder/lib/RichText";
-
 import { v4 as uuid } from "uuid";
+import { SanityBlock } from "@lib/SanityPageBuilder/lib/RichText";
 
 interface GetTestBlockProps extends Partial<SanityBlock> {}
 

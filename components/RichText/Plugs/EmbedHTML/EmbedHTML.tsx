@@ -1,5 +1,5 @@
-import type { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
 import React from "react";
+import type { PlugProps } from "@lib/SanityPageBuilder/lib/RichText";
 
 interface IEmbedHTMLProps {
   html?: string | null;

@@ -1,4 +1,3 @@
-// import SVG from "@lib/SVGPathBuilder/SVG";
 import * as React from "react";
 
 interface IStypeProps {}

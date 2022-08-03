@@ -1,6 +1,5 @@
-import { useAppContext } from "@components/AppContext/AppContext";
-
 import React from "react";
+import { useAppContext } from "@components/AppContext/AppContext";
 
 import { HeroBlogResult } from "./HeroBlockQuery";
 import AutoHero from "./variants/AutoHero";

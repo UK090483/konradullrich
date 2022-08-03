@@ -1,3 +1,4 @@
+import React from "react";
 import { useAppColor, useAppContext } from "@components/AppContext/AppContext";
 import AspectBox from "@components/AspectBox";
 
@@ -5,7 +6,6 @@ import { Section } from "@components/Section/Section";
 import Typo from "@components/Typography/Typography";
 import SanityImage from "@lib/SanityImage";
 
-import React from "react";
 import { HeroBlogResult } from "../HeroBlockQuery";
 
 interface AutoHero extends HeroBlogResult {}

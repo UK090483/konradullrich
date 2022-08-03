@@ -1,12 +1,12 @@
 import React from "react";
 import { useAppContext } from "@components/AppContext/AppContext";
+import SkipToContent from "@lib/SkipToContent/SkipComponent";
+import { Background } from "@components/Background";
 import Footer from "./Footer";
 import Head from "./Head";
 import { LayoutContextProvider } from "./LayoutContext";
 import Nav from "./Navigation/Nav/Nav";
-import SkipToContent from "@lib/SkipToContent/SkipComponent";
 import { Header } from "./Header/Header";
-import { Background } from "@components/Background";
 
 export const Layout: React.FC = (props) => {
   const { children } = props;

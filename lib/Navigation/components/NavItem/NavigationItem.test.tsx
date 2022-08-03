@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 
 import { FC } from "react";
-import { NavigationContextProvider } from "../../NavigationContext";
 
 import NavigationItem, { NavItemProps } from "./NavigationItem";
 import { NavItemBaseProps } from "./NavigationItemBase";
 import { NavigationLinkProps } from "./NavigationLink";
+import { NavigationContextProvider } from "../../NavigationContext";
 
 jest.mock("next/router", () => ({
   useRouter: () => ({
