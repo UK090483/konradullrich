@@ -1,12 +1,16 @@
 import React from "react";
 
-const useHover = () => {
+type useHoverReturn = [
+  value: boolean,
+  hoverProps: { onMouseOver: () => void; onMouseOut: () => void }
+];
+function useHover() {
   const [value, setValue] = React.useState(false);
 
   const onMouseOver = () => setValue(true);
   const onMouseOut = () => setValue(false);
 
-  return [value, { onMouseOver, onMouseOut }];
-};
+  return [value, { onMouseOver, onMouseOut }] as useHoverReturn;
+}
 
 export default useHover;

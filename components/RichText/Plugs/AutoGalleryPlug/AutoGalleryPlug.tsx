@@ -1,7 +1,7 @@
 import * as React from "react";
-import { PlugProps } from "../type";
 import AutoGalleryPlugItem from "./AutoGalleryPlugItem";
 import { AutoGalleryPlugQueryResult } from "./AutoGalleryPlugQuery";
+import { PlugProps } from "../type";
 
 interface IAutoGalleryPlugProps extends AutoGalleryPlugQueryResult {}
 

@@ -1,5 +1,5 @@
-import SanityImage from "@lib/SanityImage";
 import * as React from "react";
+import SanityImage from "@lib/SanityImage";
 import { AutoGalleryPlugQueryItemResult } from "./AutoGalleryPlugQuery";
 
 interface IAutoGalleryPlugItemProps extends AutoGalleryPlugQueryItemResult {

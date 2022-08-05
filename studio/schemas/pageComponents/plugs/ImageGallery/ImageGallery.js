@@ -33,6 +33,20 @@ export default {
       options: {
         list: ["1:1", "16:9", "2:3", "3:2"],
       },
+      hidden: ({ parent }) => parent?.variant === "framePrev",
+    },
+    {
+      name: "variant",
+      title: "Variation",
+      type: "string",
+
+      options: {
+        list: [
+          { title: "Grid (default)", value: "grid" },
+          { title: "Frame preview", value: "framePrev" },
+          { title: "Marquee", value: "marquee" },
+        ],
+      },
     },
   ],
   preview: {

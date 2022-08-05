@@ -1,7 +1,7 @@
-import { useNavigation, useNavigationOpen } from "../../NavigationContext";
 import React, { useRef } from "react";
-import { NavItem } from "../../types";
 import { NavigationModulDropdownContainer } from "./NavigationModulDropdownContainer";
+import { useNavigation, useNavigationOpen } from "../../NavigationContext";
+import { NavItem } from "../../types";
 import useIsActive from "../../helper/useIsActive";
 import NavigationItemBase from "../NavItem/NavigationItemBase";
 

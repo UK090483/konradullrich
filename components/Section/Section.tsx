@@ -11,6 +11,7 @@ interface SectionProps {
   as?: "section" | "div" | "ul";
   asInner?: "div" | "ul";
   style?: React.CSSProperties;
+  "data-testid"?: string;
 }
 
 export const Section: React.FC<SectionProps> = ({
@@ -18,7 +19,7 @@ export const Section: React.FC<SectionProps> = ({
   width = "m",
   className,
   id,
-  bg = "white",
+  bg = "black",
   noPadding = false,
   as: Component = "section",
   asInner: InnerComponent = "div",
@@ -37,7 +38,7 @@ export const Section: React.FC<SectionProps> = ({
       >
         <InnerComponent
           style={style}
-          className={clsx("mx-auto", "container", className, {
+          className={clsx("mx-auto", className, {
             "md:max-w-screen-md ": width === "s",
             "lg:max-w-screen-lg ": width === "m",
             "xl:max-w-screen-xl ": width === "l",

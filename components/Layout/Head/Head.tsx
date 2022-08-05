@@ -8,18 +8,19 @@ interface HeadProps {
 const Head: React.FunctionComponent<HeadProps> = ({ name }) => {
   return (
     <NextHead>
-      <title>Perspektiv Regionen {name ? `/ ${name}` : ""}</title>
-      <meta
+      <title>Konrad Ullrich {name ? `/ ${name}` : ""}</title>
+      <link rel="icon" href="/icon.svg"></link>
+      {/* <meta
         name="description"
         content="Generated width love by create next app"
-      />
-      <link rel="icon" href="/appIcons/ios/100.png" />
-      <link
+      /> */}
+
+      {/* <link
         rel="preload"
         href="/fonts/PPRightGrotesk-CompactBlack.woff2"
         as="font"
         crossOrigin=""
-      />
+      /> */}
     </NextHead>
   );
 };

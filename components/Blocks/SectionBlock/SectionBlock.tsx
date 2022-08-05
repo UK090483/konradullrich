@@ -1,38 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import clsx from "clsx";
-import { AppColor, Section as SectionType } from "types";
+import { AppColor } from "types";
+
+import { SanityBlock } from "@lib/SanityPageBuilder/lib/RichText";
 import RichText from "@components/RichText/RichText";
 import { Section } from "@components/Section/Section";
 import SanityImage from "@lib/SanityImage";
-import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
-import { richTextQuery } from "@components/RichText/richtTextQuery";
-
-export const sectionBlockQuery = (locale: string) => `
-_type == "section" => {
-  _key,
-  _type,
-  title,
-  bgColor,
-  type,
-  topSpace,
-  bottomSpace,
-  imagePosition,
-  'content':coalesce(
-      content_${locale}[]{${richTextQuery(locale)}},
-      content[]{${richTextQuery(locale)}}
-      ),
-  bgImage{${imageMeta}},
-  image{${imageMeta}}
-}
-`;
-
-export interface SectionResult
-  extends Omit<SectionType, "bgImage" | "content" | "image"> {
-  content: null | any;
-  bgImage: ImageMetaResult;
-  image: ImageMetaResult;
-  _key: string;
-}
+import { ImageMetaResult } from "@lib/SanityImage/query";
+import { SectionResult } from "./sectionBlockQuery";
 
 interface SectionBlockProps extends SectionResult {}
 
@@ -46,9 +21,34 @@ const SectionBlock: React.FC<SectionBlockProps> = (props) => {
     bgColor,
     type,
     imagePosition = "l",
+    columns,
   } = props;
   const hasImage = image && image.url;
   const autoType = hasImage ? "l" : "s";
+  const hasColumns = !!columns;
+
+  const preparedContent = useMemo(
+    () =>
+      content &&
+      hasColumns &&
+      content.reduce(
+        (acc, item) => {
+          let currentIndex = acc.length - 1;
+          if (item._type === "column") {
+            currentIndex += 1;
+          }
+          const currentBlock = acc[currentIndex] || [];
+          const currentBlockWithItem = [...currentBlock, item];
+          const nextResult = [...acc];
+          nextResult[currentIndex] = currentBlockWithItem;
+          return nextResult;
+        },
+        [[]] as SanityBlock[][]
+      ),
+    [content, hasColumns]
+  );
+
+  if (!content) return null;
 
   return (
     <>
@@ -58,6 +58,9 @@ const SectionBlock: React.FC<SectionBlockProps> = (props) => {
         width={type || autoType}
         {...(title && { id: title })}
         className={clsx({
+          "lg:grid  gap-12 ": hasColumns,
+          "grid-cols-2": columns === 1,
+          "grid-cols-3": columns === 2,
           "pt-5 md:pt-10": topSpace === "s",
           "pt-9 md:pt-20": topSpace === "m",
           "pt-12 md:pt-32": topSpace === "l",
@@ -74,10 +77,20 @@ const SectionBlock: React.FC<SectionBlockProps> = (props) => {
       >
         {hasImage ? (
           <WithImage place={imagePosition} image={image}>
-            {content && <RichText content={content} />}
+            {hasColumns ? (
+              <RichTextWithColumns content={preparedContent} />
+            ) : (
+              <RichText content={content} />
+            )}
           </WithImage>
         ) : (
-          <>{content && <RichText content={content} />} </>
+          <>
+            {hasColumns ? (
+              <RichTextWithColumns content={preparedContent} />
+            ) : (
+              <RichText content={content} />
+            )}{" "}
+          </>
         )}
       </Section>
 
@@ -114,6 +127,21 @@ const WithImage: React.FC<{
 
 export default SectionBlock;
 
+const RichTextWithColumns: React.FC<{ content?: SanityBlock[][] | false }> = ({
+  content,
+}) => {
+  if (!content) return null;
+  return (
+    <>
+      {content.map((i, index) => (
+        <div key={index} className="">
+          <RichText content={i} />
+        </div>
+      ))}
+    </>
+  );
+};
+
 type TransitionProps = {
   color?: AppColor;
   pos: "top" | "bottom";
@@ -126,7 +154,7 @@ const Transition: React.FC<TransitionProps> = ({ color = "primary", pos }) => {
   return (
     <div className="relative">
       <div
-        className={clsx("absolute w-full", {
+        className={clsx("absolute w-full ", {
           "transform -translate-y-12": pos === "top",
         })}
       >

@@ -14,6 +14,7 @@ export default {
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
+        { title: "SubHeader", value: "subheading1" },
       ],
       marks: {
         decorators: [
@@ -81,6 +82,7 @@ export default {
       },
     },
     { type: "spacer" },
+    { type: "column" },
     { type: "imageGalleryPlug" },
     { type: "autoGalleryPlug" },
     { type: "playerPlug" },

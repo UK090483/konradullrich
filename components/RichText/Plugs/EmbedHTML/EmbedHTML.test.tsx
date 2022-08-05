@@ -1,5 +1,5 @@
-import EmbedHTML from "./EmbedHTML";
 import { render, screen } from "@testing-library/react";
+import EmbedHTML from "./EmbedHTML";
 
 const customRender = ({ html }: { html?: string }) => {
   render(

@@ -1,6 +1,6 @@
 import { imageMeta, ImageMetaResult } from "@lib/SanityImage/query";
 
-const testimonialItemQuery = (locale: string) => `
+const testimonialItemQuery = (locale?: string) => `
 ...,
 _id,
 'image':image{${imageMeta}},
@@ -10,7 +10,7 @@ _id,
 'text':coalesce(text_${locale},text),
 `;
 
-export const testimonialQuery = (locale: string) => `
+export const testimonialQuery = (locale?: string) => `
 'testimonialItems': testimonialItems[]->{${testimonialItemQuery(locale)}}
 `;
 

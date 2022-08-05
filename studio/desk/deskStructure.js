@@ -68,13 +68,17 @@ export default () =>
       S.listItem()
         .title("Persons/Institutions")
         .icon(CgProfile)
-        .child(S.documentTypeList("person")),
+        .child(
+          S.documentTypeList("person").initialValueTemplates([
+            S.initialValueTemplateItem("personsInstitutions"),
+          ])
+        ),
 
       // S.listItem().title("Tags").icon(CgTag).child(S.documentTypeList("tag")),
-      // S.listItem()
-      //   .title("PageType")
-      //   .icon(CgTag)
-      //   .child(S.documentTypeList("pageType")),
+      S.listItem()
+        .title("PageType")
+        .icon(CgTag)
+        .child(S.documentTypeList("pageType")),
       S.listItem()
         .title("Testimonial")
         .icon(CgTag)

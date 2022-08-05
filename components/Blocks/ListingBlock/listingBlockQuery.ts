@@ -9,7 +9,7 @@ import {
   testimonialQuery,
 } from "./Listings/Testimonials/testimaonialQuery";
 
-export const listItemQuery = (locale: string) => {
+export const listItemQuery = (locale?: string) => {
   return `
   ...,
   _id,
@@ -22,11 +22,12 @@ export const listItemQuery = (locale: string) => {
     defined(pageType) => pageType->slug.current + '/' +  coalesce(slug_${locale}.current,slug.current),
     slug.current
     ),
-  'featuredImage':featuredImage{${imageMeta}}
+  'featuredImage':featuredImage{${imageMeta}},
+  'featuredImages':featuredImages[]{${imageMeta}}
   `;
 };
 
-export const listingBlockQuery = (locale: string) => `
+export const listingBlockQuery = (locale?: string) => `
 _type == "listing" => {
   ...,
   eventVariant,
@@ -64,6 +65,7 @@ export interface ListItemResult {
   subTitle?: null | string;
   slug?: null | string;
   featuredImage?: null | ImageMetaResult;
+  featuredImages?: (null | ImageMetaResult)[] | null;
   _id: string;
   _updatedAt?: string;
 }

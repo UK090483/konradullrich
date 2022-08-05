@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const appConfig = require("./app.config.json");
-const withPWA = require("next-pwa");
 
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const config = {
   i18n: {
+    localeDetection: false,
     locales: Object.keys(appConfig.locales),
     defaultLocale: Object.entries(appConfig.locales).reduce(
       (acc, [key, lang]) => (lang.isDefault ? key : acc),
@@ -23,15 +23,7 @@ const config = {
   images: {
     domains: ["picsum.photos", "cdn.sanity.io"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
-    ];
-  },
+
   webpack(config, options) {
     const { dev, isServer } = options;
 

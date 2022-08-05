@@ -10,8 +10,8 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Montserrat", "Helvetica", "sans-serif"],
-      header: ["grotesk"],
+      sans: ["Courier New", "sans-serif"],
+      header: ["Trebuchet MS"],
     },
     fontSize: {
       sm: ["12px", "1.4em"],
@@ -25,8 +25,8 @@ module.exports = {
       "3xl-mobile": ["22px", "1.1em"],
       "4xl": ["55px", "1.1em"],
       "4xl-mobile": ["35px", "1.1em"],
-      "5xl": ["65px", "1.1em"],
-      "5xl-mobile": ["55px", "1.1em"],
+      "5xl": ["80px", "1.1em"],
+      "5xl-mobile": ["60px", "1.1em"], //h1
     },
 
     extend: {
@@ -40,9 +40,28 @@ module.exports = {
           DEFAULT: "#ebebeb",
           dark: "#009eeb",
         },
+        // background: {
+        //   light: "#f4f4f1",
+        //   DEFAULT: "#0a192f",
+        //   dark: "#009eeb",
+        // },
+        // text: {
+        //   DEFAULT: "#8892b0",
+        //   light: "#d0d4e0",
+        // },
+        text: {
+          light: "#f4f4f1",
+          DEFAULT: "#0a192f",
+          dark: "#009eeb",
+        },
+        background: {
+          DEFAULT: "#8892b0",
+          light: "#d0d4e0",
+        },
         black: "#000000",
         white: "#ffffff",
         primary: "#F3BD06",
+        // primary: "#8187F9",
         secondary: "#D22D30",
         red: "#D22D30",
       },

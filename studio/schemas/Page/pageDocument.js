@@ -57,9 +57,16 @@ export default withLocalization({
         disableNew: true,
       },
     },
+    { title: "Primary color", name: "primaryColor", type: "string" },
+    { title: "Secondary color", name: "secondaryColor", type: "string" },
     {
       name: "featuredImage",
       type: "defaultImage",
+    },
+    {
+      name: "featuredImages",
+      type: "array",
+      of: [{ type: "defaultImage" }],
     },
 
     defaultBockContent,
