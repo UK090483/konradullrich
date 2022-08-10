@@ -16,16 +16,14 @@ const Seo: React.FC<SeoProps> = (props) => {
     shareDesc,
     canonical,
     shareGraphic,
-    pageUrl = typeof window !== "undefined"
-      ? window.location.origin
-      : "https://www.example.ie/",
+    pageUrl = "https://www.konradullrich.com/",
   } = props;
   const canUrl = `${pageUrl}${canonical}`;
 
   return (
     <NextSeo
-      nofollow={true}
-      noindex={true}
+      // nofollow={true}
+      // noindex={true}
       title={metaTitle}
       description={metaDesc}
       canonical={canUrl}

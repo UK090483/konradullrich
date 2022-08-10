@@ -10,13 +10,6 @@ import usePreviewSubscription from "@lib/SanityPageBuilder/lib/preview/previewSu
 import { AppContextProvider } from "@components/AppContext/AppContext";
 import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicator";
 
-// import {
-//   AnimatePresence,
-//   domAnimation,
-//   LazyMotion,
-//   motion,
-// } from "framer-motion";
-import { animations } from "@lib/animations";
 import { PageTransitionWrap } from "@components/PageTransition/PagetransitionWrap";
 import Seo from "@lib/SeoService/Seo";
 import { PageResult } from "./[[...slug]]";
@@ -41,17 +34,7 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
     <>
       <Seo {...pageProps.data?.seo} />
       <AppContextProvider data={pageProps.data} hostName={"hostname"}>
-        {/* <LazyMotion features={domAnimation}> */}
         <Layout {...pageProps}>
-          {/* <AnimatePresence exitBeforeEnter>
-              <motion.div
-                key={pageProps._id}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={animation.variants}
-                transition={animation.transition}
-              > */}
           <PageTransitionWrap id={pageProps._id || asPath || "no"}>
             <AppContextProvider
               key={pageProps._id || asPath || "no"}
@@ -61,11 +44,7 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
               <Component {...pageProps} />
             </AppContextProvider>
           </PageTransitionWrap>
-          {/* </motion.div>
-            </AnimatePresence> */}
         </Layout>
-        {/* </LazyMotion> */}
-
         {preview && <PreviewIndicator show={preview} />}
         <Cookie />
       </AppContextProvider>
