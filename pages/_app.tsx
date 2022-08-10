@@ -35,12 +35,7 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
   });
 
   const pageProps = { ..._pageProps, ...data };
-
   const { asPath } = useRouter();
-
-  const animation = animations[0];
-
-  console.log(pageProps.data?.seo);
 
   return (
     <>
