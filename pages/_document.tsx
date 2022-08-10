@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
+const isDevelopment = process.env.NODE_ENV === "development";
 class MyDocument extends Document {
   render() {
     return (
@@ -10,7 +12,11 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="text-text bg-background debug-screens ">
+        <body
+          className={clsx("text-text bg-background ", {
+            "debug-screens": isDevelopment,
+          })}
+        >
           <Main />
           <div id="app-portal" />
           <NextScript />
