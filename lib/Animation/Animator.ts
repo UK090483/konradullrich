@@ -88,7 +88,6 @@ export default class Animator {
     return elements;
   }
 
-  restart() {}
   destroy() {
     this.forAll((i) => {
       this._observer.unobserve(i.element);

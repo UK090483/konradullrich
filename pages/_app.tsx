@@ -18,6 +18,7 @@ import PreviewIndicator from "@lib/SanityPageBuilder/lib/preview/PreviewIndicato
 // } from "framer-motion";
 import { animations } from "@lib/animations";
 import { PageTransitionWrap } from "@components/PageTransition/PagetransitionWrap";
+import Seo from "@lib/SeoService/Seo";
 import { PageResult } from "./[[...slug]]";
 
 interface AppPropsWithStaticProps {
@@ -39,8 +40,11 @@ function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
 
   const animation = animations[0];
 
+  console.log(pageProps.data?.seo);
+
   return (
     <>
+      <Seo {...pageProps.data?.seo} />
       <AppContextProvider data={pageProps.data} hostName={"hostname"}>
         {/* <LazyMotion features={domAnimation}> */}
         <Layout {...pageProps}>

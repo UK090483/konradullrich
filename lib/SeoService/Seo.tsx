@@ -39,11 +39,11 @@ const Seo: React.FC<SeoProps> = (props) => {
             url: shareGraphic + metaImageParams || "",
             width: 800,
             height: 600,
-            alt: "Og Image Alt",
+            alt: "logo",
             type: "image/jpeg",
           },
         ],
-        site_name: "SiteName",
+        site_name: "Portfolio / Konrad Ullrich",
       }}
     />
   );

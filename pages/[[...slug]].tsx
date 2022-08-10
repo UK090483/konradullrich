@@ -15,10 +15,13 @@ import fetchStaticPaths from "@lib/SanityPageBuilder/lib/fetchStaticPath/fetchSt
 import fetchStaticProps from "@lib/SanityPageBuilder/lib/fetchStaticProps/fetchStaticProps";
 import { sanityClient as client } from "@lib/SanityService/sanity.server";
 import useAnimation from "@lib/Animation/useAnimation";
+import { seoQuery, SeoResult } from "@lib/SeoService/SeoQuerys";
 import appConfig from "../app.config.json";
 const locales = appConfig.locales;
 
-export type PageResult = layoutQueryResult & appQueryResult & { content?: any };
+export type PageResult = layoutQueryResult &
+  appQueryResult &
+  SeoResult & { content?: any };
 
 const Page = () => {
   const { data } = useAppContext();
@@ -75,7 +78,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
       locale
     )},${listingBlockQuery(locale)}},  ${layoutQuery(locale)}, ${appQuery(
       locale
-    )}`,
+    )}, ${seoQuery(locale)}`,
     locales,
     preview,
   });

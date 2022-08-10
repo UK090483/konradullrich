@@ -46,12 +46,8 @@ export function Background(props: IBackgroundProps) {
   );
 }
 
-const Bubble = (props: {
-  path: string;
-  time?: number;
-  direction?: "reverse" | "normal";
-}) => {
-  const { path, time = 120, direction = "normal" } = props;
+const Bubble = (props: { path: string; time?: number }) => {
+  const { path, time = 120 } = props;
   return (
     <>
       {/* <path fill="none" stroke="lightgrey" d={path} /> */}
