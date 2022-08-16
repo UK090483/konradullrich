@@ -15,7 +15,7 @@ describe("HeroBlock", () => {
     }`);
   });
   it("should render", () => {
-    // customRender(<HeroBlock _key="test" />);
-    // expect(screen.getByTestId("heroBlock"));
+    customRender(<HeroBlock _key="test" />);
+    expect(screen.getByTestId("heroBlock"));
   });
 });
