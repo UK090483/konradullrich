@@ -10,5 +10,9 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run with env
         uses: cypress-io/github-action@v4
+        with:
+          record: true
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
