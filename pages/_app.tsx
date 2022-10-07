@@ -18,7 +18,7 @@ interface AppPropsWithStaticProps {
   pageProps: PageProps<PageResult>;
   Component: NextComponentType<NextPageContext, any, PageProps<PageResult>>;
 }
-
+//
 function App({ Component, pageProps: _pageProps }: AppPropsWithStaticProps) {
   const { data: _data, query, preview } = _pageProps;
 
